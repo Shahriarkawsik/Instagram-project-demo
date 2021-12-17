@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:slide_drawer/slide_drawer.dart';
 String btn1= "Button one";
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -23,7 +24,12 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 30, fontWeight:
               FontWeight.bold),
         ),
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () => SlideDrawer.of(context)!.toggle(),
+        ),
       ),
+
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -56,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     ),
                     Text("Shahriar Kawsik",
-                      style: TextStyle(fontSize: 15,
+                      style: TextStyle(color: Colors.white,fontSize: 20,
                           fontWeight: FontWeight.bold),)
                   ],
                 ),
@@ -149,7 +155,60 @@ class _MyHomePageState extends State<MyHomePage> {
                     btn1 = "button pressed";
                   });
                 },
-                child: Text(btn1))
+                child: Text(btn1)
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: [
+                  Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Colors.orange,
+                              width: 2
+                          )
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 4,left: 20,right: 20,bottom: 4),
+                        child: Text("Photos",style: TextStyle(color: Colors.white),),
+                      )),
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(8.0),
+                    height: width*0.3,
+                      width: width*0.3,
+                      child: Image.asset("assets/images/image-01.jpg")
+                  ),
+                  Container(
+                      padding: EdgeInsets.all(8.0),
+                      height: width*0.3,
+                      width: width*0.3,
+                      child: Image.asset("assets/images/image-02.jpg")
+                  ),
+                  Container(
+                      padding: EdgeInsets.all(8.0),
+                      height: width*0.3,
+                      width: width*0.3,
+                      child: Image.asset("assets/images/image-03.jpg")
+                  ),
+                  Container(
+                      padding: EdgeInsets.all(8.0),
+                      height: width*0.3,
+                      width: width*0.3,
+                      child: Image.asset("assets/images/image-04.png")
+                  ),
+                ],
+              ),
+            )
               ],
             )
 
